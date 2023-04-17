@@ -104,6 +104,9 @@ void startmonitoring() {
       // state = finishreadState; 
       navRead_display()
       state = sendingState
+      isTempStable = false
+      isPhStable = false
+      isDepthStable = false
       // Serial.println("Finished Reading.");
     }
   }
