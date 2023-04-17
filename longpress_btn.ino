@@ -1,45 +1,45 @@
 
 
-const int LONG_PRESS_TIME  = 1000; // 1000 milliseconds
+// const int LONG_PRESS_TIME  = 1000; // 1000 milliseconds
 
 
-bool lastState = HIGH;
-bool currentState;  
-unsigned long pressedTime  = 0;
-unsigned long releasedTime = 0;
+// bool lastState = HIGH;
+// bool currentState;  
+// unsigned long pressedTime  = 0;
+// unsigned long releasedTime = 0;
 
 
-void resetreadORsendmsg() {
+// void resetreadORsendmsg() {
 
-  currentState = digitalRead(rstbtn);
+//   currentState = digitalRead(rstbtn);
 
-  if (lastState == HIGH && currentState == LOW)       // button is pressed
-    pressedTime = millis();
-  else if (lastState == LOW && currentState == HIGH) { // button is released
-    releasedTime = millis();
+//   if (lastState == HIGH && currentState == LOW)       // button is pressed
+//     pressedTime = millis();
+//   else if (lastState == LOW && currentState == HIGH) { // button is released
+//     releasedTime = millis();
 
-    long pressDuration = releasedTime - pressedTime;
+//     long pressDuration = releasedTime - pressedTime;
 
 
-    if ( pressDuration > LONG_PRESS_TIME )
-      if (state == finishreadState || state == readingState) {
-        Serial.println("start reading...");
-        isTempStable = false;
-        isPhStable = false;
-        isDepthStable = false;
-        state = readingState;
-        analogReference(DEFAULT);
-        navRead_display();
-        countReset_display();
-      }
-      else if (state == toSendState) {
-        Serial.println("Sending readings...");
-        state = sendingState;
-        numSentMsg = 0;     
-        sending_display();              // reset tracking of msgs sent
-      }
-  }
+//     if ( pressDuration > LONG_PRESS_TIME )
+//       if (state == finishreadState || state == readingState) {
+//         Serial.println("start reading...");
+//         isTempStable = false;
+//         isPhStable = false;
+//         isDepthStable = false;
+//         state = readingState;
+//         analogReference(DEFAULT);
+//         navRead_display();
+//         countReset_display();
+//       }
+//       else if (state == toSendState) {
+//         Serial.println("Sending readings...");
+//         state = sendingState;
+//         numSentMsg = 0;     
+//         sending_display();              // reset tracking of msgs sent
+//       }
+//   }
 
-  // save the the last state
-  lastState = currentState;
-}
+//   // save the the last state
+//   lastState = currentState;
+// }

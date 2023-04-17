@@ -102,11 +102,11 @@ void startmonitoring() {
     getStable_depth();
     if (isTempStable && isPhStable && isDepthStable) {
       // state = finishreadState; 
-      navRead_display()
-      state = sendingState
-      isTempStable = false
-      isPhStable = false
-      isDepthStable = false
+      navRead_display();
+      state = sendingState;
+      isTempStable = false;
+      isPhStable = false;
+      isDepthStable = false;
       // Serial.println("Finished Reading.");
     }
   }

@@ -1,5 +1,5 @@
 //Parameters
-const    numReadings   = 50;
+const int numReadings = 50;
 float readings [numReadings];
 int readIndex   = 0;
 float total  = 0;
