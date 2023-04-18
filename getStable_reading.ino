@@ -20,6 +20,10 @@ void getStable_temp() {
     return;
   }
 
+
+  temp_display();
+
+
   float recentReading = printTemperature();
 
 
@@ -47,6 +51,9 @@ void getStable_ph() {
   }
 
 
+  ph_display();
+
+  
   float ph_recentReading = String(printpH(), 1).toFloat();
   // Serial.println(ph_recentReading);
 
@@ -74,6 +81,8 @@ void getStable_depth() {
     return;
   }
 
+  depth_display();
+
   float depth_recentReading = getdepth();
   // Serial.println(depth_recentReading);
 
@@ -89,7 +98,7 @@ void getStable_depth() {
     isDepthStable = true;
     depth_display();
   }
-  depth_display();
+
   depth_lastReading = depth_recentReading;
 }
 
@@ -101,7 +110,7 @@ void startmonitoring() {
     getStable_temp();
     getStable_depth();
     if (isTempStable && isPhStable && isDepthStable) {
-      // state = finishreadState; 
+      // state = finishreadState;
       navRead_display();
       state = sendingState;
       isTempStable = false;
